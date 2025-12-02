@@ -9,29 +9,25 @@ graph TD
     Label[Label]
     FeedbackOverlay[FeedbackOverlay]
 
-    %% 관계 정의
-    App -- onComplete --> QuizPage1
+    %% 관계 연결 (Flow)
+    App -- 렌더링 (Page State) --> QuizPage1
     
-    QuizPage1 -- props: day, title --> QuizHeader
-    QuizPage1 -- state: selection --> ImageGrid
-    
-    ImageGrid -- map(images) --> ImageCard
-    
-    ImageCard -- src, alt --> Img
-    ImageCard -- id, text --> Label
-    ImageCard -- conditional --> FeedbackOverlay
+    subgraph QuizPage1 Structure
+        QuizPage1 -- 포함 --> QuizHeader
+        QuizPage1 -- 데이터 매핑 (images.map) --> ImageGrid
+        
+        ImageGrid -- 반복 렌더링 --> ImageCard
+        
+        ImageCard -- src/alt 속성 --> Img
+        ImageCard -- 텍스트 표시 --> Label
+        ImageCard -- 조건부 렌더링 (selection !== null) --> FeedbackOverlay
+    end
 
-    %% 스타일링 및 상세 설명
-    classDef component fill:#fff,stroke:#333,stroke-width:2px;
-    classDef logic fill:#f9f9f9,stroke:#666,stroke-dasharray: 5 5;
-    classDef conditional fill:#ffe6e6,stroke:#ff9999;
+    %% 스타일 정의
+    classDef container fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef component fill:#fff,stroke:#333,stroke-width:1px;
+    classDef conditional fill:#ffebee,stroke:#c62828,stroke-dasharray: 5 5;
 
-    class App,QuizPage1,QuizHeader component;
-    class ImageGrid,ImageCard,Img,Label logic;
+    class App,QuizPage1 container;
+    class QuizHeader,ImageGrid,ImageCard,Img,Label component;
     class FeedbackOverlay conditional;
-
-    %% 노드 텍스트 상세
-    QuizPage1:::component
-    QuizHeader:::component
-    FeedbackOverlay["FeedbackOverlay<br/>(O/X 표시)"]:::conditional
-    ImageCard["ImageCard<br/>(onClick Event)"]:::logic
