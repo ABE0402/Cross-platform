@@ -1,3 +1,4 @@
+```mermaid
 graph TD
     %% 노드 정의
     App[App]
@@ -31,3 +32,4 @@ graph TD
     class App,QuizPage1 container;
     class QuizHeader,ImageGrid,ImageCard,Img,Label component;
     class FeedbackOverlay conditional;
+```
