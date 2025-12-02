@@ -105,17 +105,21 @@ npm install
 Bash
 
 npm run dev
-# 폴더 구조 (Project Structure)
-src/
-├── components/        # UI 컴포넌트
-│   ├── StartPage.tsx  # 메인 메뉴 (진행 상황 표시)
-│   ├── QuizHeader.tsx # 공통 헤더
-│   ├── QuizPage1.tsx  # 지각력 훈련
-│   ├── QuizPage2.tsx  # 판단력 훈련
-│   ├── QuizPage3.tsx  # 순서 배열 훈련
-│   ├── MemoryPage.tsx # 기억력 훈련
-│   ├── ResultPage.tsx # 결과 피드백
-│   └── icons.tsx      # SVG 아이콘 모음
-├── types.ts           # 공통 타입 정의
-├── App.tsx            # 라우팅 및 상태 관리
-└── index.tsx          # 앱 진입점
+## 폴더 구조 (Project Structure)
+
+
+| 경로 (Path) | 설명 (Description) |
+| :--- | :--- |
+| ** components/** | **재사용 가능한 UI 컴포넌트 폴더** |
+| `StartPage.tsx` | 앱의 시작 화면. 퀴즈 메뉴와 진행 상황을 표시합니다. |
+| `QuizHeader.tsx` | 각 퀴즈 페이지 상단에 표시되는 제목 및 뒤로가기 버튼입니다. |
+| `QuizPage1.tsx` | **[지각력]** 상황에 맞는 장소 사진을 고르는 퀴즈입니다. |
+| `QuizPage2.tsx` | **[판단력]** 예시와 같은 규칙의 도형 열을 찾는 퀴즈입니다. |
+| `QuizPage3.tsx` | **[순서 배열]** 일상 행동의 순서를 올바르게 나열하는 퀴즈입니다. |
+| `MemoryPage.tsx` | **[기억력]** 제시된 도형을 암기 후 맞추는 퀴즈입니다. |
+| `ResultPage.tsx` | 퀴즈 종료 후 총점과 격려 메시지를 보여주는 결과 화면입니다. |
+| `icons.tsx` | 퀴즈에 사용되는 도형 및 아이콘 컴포넌트 모음입니다. |
+| **📜 Root Files** | **앱 설정 및 진입 파일** |
+| `App.tsx` | 전체 페이지 라우팅 로직과 퀴즈 상태(State)를 관리합니다. |
+| `types.ts` | 프로젝트 전반에서 사용되는 TypeScript 타입을 정의합니다. |
+| `index.tsx` | React 앱을 DOM에 렌더링하는 진입점입니다. |
