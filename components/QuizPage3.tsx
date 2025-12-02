@@ -13,9 +13,10 @@ const CORRECT_ORDER = [4, 3, 1, 2];
 
 interface QuizPage3Props {
   onComplete: (isCorrect: boolean) => void;
+  onGoHome: () => void;
 }
 
-const QuizPage3: React.FC<QuizPage3Props> = ({ onComplete }) => {
+const QuizPage3: React.FC<QuizPage3Props> = ({ onComplete, onGoHome }) => {
     const [selectedOrder, setSelectedOrder] = useState<number[]>([]);
     const [isFinished, setIsFinished] = useState(false);
     const [isCorrect, setIsCorrect] = useState(false);
@@ -37,7 +38,12 @@ const QuizPage3: React.FC<QuizPage3Props> = ({ onComplete }) => {
 
     return (
         <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-            <QuizHeader day={12} category="순서 배열 훈련" title="머리감는 과정을 순서대로 나열해 보세요." />
+            <QuizHeader 
+                day={12} 
+                category="순서 배열 훈련" 
+                title="머리감는 과정을 순서대로 나열해 보세요." 
+                onBack={onGoHome}
+            />
             
             <div className="flex justify-center items-center space-x-2 md:space-x-4 my-6 h-20 md:h-24">
                 {Array.from({ length: 4 }).map((_, index) => (

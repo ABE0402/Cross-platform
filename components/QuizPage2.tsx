@@ -15,9 +15,10 @@ const CORRECT_COLUMN_INDEX = 1;
 
 interface QuizPage2Props {
   onComplete: (isCorrect: boolean) => void;
+  onGoHome: () => void;
 }
 
-const QuizPage2: React.FC<QuizPage2Props> = ({ onComplete }) => {
+const QuizPage2: React.FC<QuizPage2Props> = ({ onComplete, onGoHome }) => {
     const [selection, setSelection] = useState<{index: number, isCorrect: boolean} | null>(null);
 
     const handleSelect = (index: number) => {
@@ -35,7 +36,13 @@ const QuizPage2: React.FC<QuizPage2Props> = ({ onComplete }) => {
 
     return (
         <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-            <QuizHeader day={12} category="판단력 훈련" title="예시와 똑같은 모양을 찾아보세요." subtitle="동그라미와 세모의 순서가 같아야 합니다." />
+            <QuizHeader 
+                day={12} 
+                category="판단력 훈련" 
+                title="예시와 똑같은 모양을 찾아보세요." 
+                subtitle="동그라미와 세모의 순서가 같아야 합니다." 
+                onBack={onGoHome}
+            />
             
             <div className="flex justify-center items-center gap-4 md:gap-8 mb-6">
                 <div className="bg-[#D98BAA] p-4 rounded-lg flex flex-col items-center gap-2 shadow-inner">
