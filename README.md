@@ -1,4 +1,4 @@
-#🧠 두뇌 건강 퀴즈 (Dementia Prevention Quiz)
+# 두뇌 건강 퀴즈 (Dementia Prevention Quiz)
 어르신들의 치매 예방과 인지 능력 향상을 위해 개발된 인터랙티브 웹 애플리케이션입니다. 시각적 지각, 판단력, 순서 배열, 기억력 등 다양한 영역을 게임처럼 훈련할 수 있습니다.
 
 # 주요 기능 (Key Features)
