@@ -35,6 +35,7 @@ graph TD
     class FeedbackOverlay conditional;
 ```
 # Quiz2
+
 ```mermaid
 graph TD
     %% 노드 정의
@@ -43,32 +44,32 @@ graph TD
     QuizHeader[QuizHeader]
     
     subgraph ContentArea [Main Content Area]
-        ExampleBlock[Example Box]
-        ExampleIcons[Example Icons<br/>(Circle, Triangle)]
+        ExampleBlock["Example Box<br/>(Static Hint)"]
+        ExampleIcons["Example Icons<br/>(Circle, Triangle)"]
         
         GridContainer[Grid Container]
-        ColumnCard[Column Card<br/>(Clickable Unit)]
+        ColumnCard["Column Card<br/>(Clickable Unit)"]
         RowItem[Row Item]
-        ShapeIcon[Shape Icons<br/>(Square, Circle, etc.)]
+        ShapeIcon["Shape Icons<br/>(Square, Circle...)"]
     end
 
     %% 관계 연결 (Flow)
-    App -- 렌더링 --> QuizPage2
+    App -- Render --> QuizPage2
     
-    QuizPage2 -- props: title, subtitle --> QuizHeader
-    QuizPage2 -- Static Render --> ExampleBlock
+    QuizPage2 -- props --> QuizHeader
+    QuizPage2 -- Static --> ExampleBlock
     ExampleBlock --- ExampleIcons
     
-    QuizPage2 -- Loop (4 Columns) --> GridContainer
+    QuizPage2 -- "Loop (4 Columns)" --> GridContainer
     GridContainer -- map --> ColumnCard
     
-    ColumnCard -- Loop (gridShapes) --> RowItem
+    ColumnCard -- "Loop (Rows)" --> RowItem
     RowItem -- Render --> ShapeIcon
     
     %% 인터랙션 및 로직
-    ColumnCard -.-> |onClick (index)| UpdateState[Update Selection State]
-    UpdateState -.-> |Check Logic| Logic{Is Correct Column?}
-    Logic -- Compare with CORRECT_COLUMN_INDEX --> Result[Set Border Color]
+    ColumnCard -.-> |"onClick(index)"| UpdateState[Update Selection State]
+    UpdateState -.-> |Check Logic| Logic{"Is Correct Column?"}
+    Logic -- Compare Index --> Result[Set Border Color]
     Result -.-> ColumnCard
 
     %% 스타일 정의
