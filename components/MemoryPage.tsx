@@ -45,7 +45,7 @@ const MemoryPage: React.FC<MemoryPageProps> = ({ onComplete }) => {
     if (phase === 'memorize') {
         return (
             <div className="bg-white p-6 rounded-2xl shadow-lg w-full text-center">
-                <QuizHeader day={12} title="아래 모양 2개를 잘 기억해 보세요." />
+                <QuizHeader day={12} category="기억력 훈련" title="아래 모양 2개를 잘 기억해 보세요." />
                 <div className="flex justify-center items-center border-2 border-gray-300 rounded-lg p-8 my-8 min-h-[200px]">
                     <div className="flex items-center gap-8 animate-pulse">
                         <ClubIcon className="w-32 h-32 text-black" />
@@ -60,7 +60,7 @@ const MemoryPage: React.FC<MemoryPageProps> = ({ onComplete }) => {
 
     return (
         <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-            <QuizHeader day={12} title="앞에서 보았던 모양을 찾아 주세요." />
+            <QuizHeader day={12} category="기억력 훈련" title="앞에서 보았던 모양을 찾아 주세요." />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
                 {options.map(option => (
                     <div

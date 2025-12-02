@@ -37,7 +37,7 @@ const QuizPage3: React.FC<QuizPage3Props> = ({ onComplete }) => {
 
     return (
         <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-            <QuizHeader day={12} title="머리감는 과정을 순서대로 나열해 보세요." />
+            <QuizHeader day={12} category="순서 배열 훈련" title="머리감는 과정을 순서대로 나열해 보세요." />
             
             <div className="flex justify-center items-center space-x-2 md:space-x-4 my-6 h-20 md:h-24">
                 {Array.from({ length: 4 }).map((_, index) => (

@@ -32,7 +32,7 @@ const QuizPage1: React.FC<QuizPage1Props> = ({ onComplete }) => {
 
     return (
         <div className="bg-white p-6 rounded-2xl shadow-lg w-full">
-            <QuizHeader day={12} title="편지를 보내려면 어디로 가야 할까요?" subtitle="아래 사진 중에서 정답을 골라보세요." />
+            <QuizHeader day={12} category="지각력 훈련" title="편지를 보내려면 어디로 가야 할까요?" subtitle="아래 사진 중에서 정답을 골라보세요." />
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {images.map((image) => (
                     <div
