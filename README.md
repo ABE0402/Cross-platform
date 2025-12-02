@@ -82,3 +82,51 @@ graph TD
     class UpdateState,Logic,Result logic;
 
 ```
+
+# Quiz3
+```mermaid
+graph TD
+    %% 노드 정의
+    App[App]
+    QuizPage3[QuizPage3]
+    QuizHeader[QuizHeader]
+
+    subgraph VisualStructure [Visual Structure]
+        SequenceDisplay["Sequence Display<br/>(1 → 2 → 3 → 4)"]
+        OptionGrid[Option Grid]
+        OptionCard["Option Card<br/>(Clickable Image)"]
+        
+        Img[Image]
+        Label[Text Label]
+        StatusRing["Status Ring<br/>(Green/Red Border)"]
+    end
+
+    %% 관계 연결 (Flow)
+    App -- Render --> QuizPage3
+    QuizPage3 -- Props --> QuizHeader
+    
+    %% State 연결
+    QuizPage3 -- "State: selectedOrder<br/>(Visualizing Progress)" --> SequenceDisplay
+    QuizPage3 -- "Data: shuffledSteps<br/>(Randomized Options)" --> OptionGrid
+    
+    OptionGrid -- Map --> OptionCard
+    OptionCard -- Render --> Img
+    OptionCard -- Render --> Label
+    
+    %% 인터랙션 및 로직
+    OptionCard -.-> |"onClick(id)"| Logic{"Update Order &<br/>Check Completion"}
+    Logic -- "Update State" --> QuizPage3
+    
+    %% 피드백 루프 (정답 확인)
+    QuizPage3 -- "if (isFinished)" --> StatusRing
+    StatusRing -.-> |"Show Result (O/X)"| OptionCard
+    
+    %% 스타일 정의
+    classDef container fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
+    classDef component fill:#fff,stroke:#333,stroke-width:1px;
+    classDef logic fill:#fff3e0,stroke:#e65100,stroke-dasharray: 5 5;
+    
+    class App,QuizPage3 container;
+    class QuizHeader,SequenceDisplay,OptionGrid,OptionCard,Img,Label component;
+    class Logic,StatusRing logic;
+```
