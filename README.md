@@ -119,7 +119,7 @@ npm run dev
 | `MemoryPage.tsx` | **[기억력]** 제시된 도형을 암기 후 맞추는 퀴즈입니다. |
 | `ResultPage.tsx` | 퀴즈 종료 후 총점과 격려 메시지를 보여주는 결과 화면입니다. |
 | `icons.tsx` | 퀴즈에 사용되는 도형 및 아이콘 컴포넌트 모음입니다. |
-| **📜 Root Files** | **앱 설정 및 진입 파일** |
+| ** Root Files** | **앱 설정 및 진입 파일** |
 | `App.tsx` | 전체 페이지 라우팅 로직과 퀴즈 상태(State)를 관리합니다. |
 | `types.ts` | 프로젝트 전반에서 사용되는 TypeScript 타입을 정의합니다. |
 | `index.tsx` | React 앱을 DOM에 렌더링하는 진입점입니다. |
